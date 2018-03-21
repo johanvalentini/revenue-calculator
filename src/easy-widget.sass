@@ -60,11 +60,14 @@ html
             color: black
             text-align: center
             text-transform: uppercase
+            position: relative
+            z-index: 2
     &__visual
         flex: 0 1 auto
         position: relative
         width: 155px
         padding-top: 211px
+        z-index: 1
 
 
         &--1
@@ -172,15 +175,26 @@ html
         opacity: 1
         transform: translateY(0) rotate(45deg)
 
-.ac-easy-calculator-widget-popup-readmore-container
-    text-align: center
-    margin-top: 50px
-
 
 .ac-easy-calculator-widget-popup-readmore
     position: relative
     display: block
     vertical-align: middle
+    margin-top: 10px
+
+    &__close-link
+        position: absolute
+        top: 20px
+        right: 20px
+        color: $blue
+        cursor: pointer
+
+
+        // &:after
+        //     color: black
+        //     content: "\274C"
+            
+
 
     &__icon-container
         display: inline-block
@@ -216,6 +230,9 @@ html
         border-bottom: 1px solid rgba(0,0,0,0.3)
         padding: 20px
         margin-top: 10px
+        font-size: 16px
+        font-weight: 400
+        text-transform: none
         
         box-sizing: border-box
         text-align: left
@@ -255,7 +272,10 @@ html
             max-width: 330px
 
     .ac-easy-calculator-widget-popup-readmore
-        display: inline-block
+        // display: inline-block
+        // margin-top: 0
+        // margin-left: 10px
+
         &__content
             position: absolute
             left: 50%
@@ -263,7 +283,4 @@ html
             margin-left: -150px
             margin-top: 40px
 
-        // &__icon-container:hover:after
-
-        // &__icon-container:hover + &__content
-        //     display: block
+        

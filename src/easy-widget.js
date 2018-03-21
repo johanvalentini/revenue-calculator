@@ -35,10 +35,16 @@ if(easyCalculatorWidget) {
     }
     rangesliderJs.create(easyCalculatorWidgetRangeSlider, rangesliderOptions)
 
-    // Bind popup
-    var popup = document.querySelector('.ac-easy-calculator-widget-popup-readmore__icon-container')
-    if(popup) {
-        popup.addEventListener('click', toggleReadmorePopup)
+    var popupContainer = document.querySelector('.ac-easy-calculator-widget-popup-readmore')
+    // Bind popup and move it to target
+    if(popupContainer) {
+        var popupIcon = document.querySelector('.ac-easy-calculator-widget-popup-readmore__icon-container')
+        var popupCloseLink = document.querySelector('.ac-easy-calculator-widget-popup-readmore__close-link')
+        var targetToMovePopUpTo = document.getElementById('ac-easy-extra')
+        targetToMovePopUpTo.appendChild(popupContainer)
+        popupIcon.addEventListener('click', toggleReadmorePopup)
+        popupCloseLink.addEventListener('click', toggleReadmorePopup.bind(popupIcon))
+
     }
 
 
@@ -130,7 +136,7 @@ function renderTemplate(monthLabel, yearLabel, titleSlider, titleVisual) {
             '</div>'+
         '</div>'+
         '<div class="ac-easy-calculator__visual-container" id="ac-easy-calculator__visual-container">'+
-            '<div class="ac-easy-calculator__visual-container__title">'+ titleVisual +'</div>'+
+            '<div class="ac-easy-calculator__visual-container__title">'+ titleVisual +'<span id="ac-easy-extra"></span></div>'+
             '<div class="ac-easy-calculator__visual ac-easy-calculator__visual--1">'+
                 '<div class="ac-easy-calculator__visual__message" id="ac-easy-calculator__visual__message-1">'+
                     '<div class="ac-easy-calculator__visual__message__head"></div>'+
