@@ -1,0 +1,179 @@
+@import './range-slider'
+$base-spacing: 20px
+$max-amount-of-coins-used: 12
+$ease: cubic-bezier(0.23, 1, 0.32, 1)
+
+
+
+html
+    background-color: #EFF8FA
+    font-family: 'Source Sans Pro', sans-serif
+
+.ac-easy-calculator-container
+
+
+.ac-easy-calculator
+    &__slider-container
+        margin-bottom: 120px
+
+        &__title
+            font-size: 18px
+            font-weight: 700
+            color: black
+            text-align: center
+            text-transform: uppercase
+            margin-bottom: 40px
+            // align-self: flex-start
+
+    &__slider
+        flex: 0 0 100%
+        width: 100%
+        position: relative
+
+    &__slider-label
+        position: absolute
+        top: 100%
+        left: 0
+        background-color: white
+        padding: 15px 20px
+        // transform: translate3d(-50%,20px,0)
+        border-bottom: 1px solid rgba(0,0,0,0.3)
+        border-radius: 8px
+        margin-top: 20px
+        font-size: 22px
+        // min-width: 120px
+        text-align: center
+        color: $blue
+        font-weight: 400
+        z-index: 2
+    
+    &__visual-container
+        display: flex
+        align-items: flex-end
+        justify-content: center
+        flex-wrap: wrap
+        &__title
+            flex: 0 0 100%
+            width: 100%
+            font-size: 18px
+            font-weight: 700
+            color: black
+            text-align: center
+            text-transform: uppercase
+    &__visual
+        flex: 0 1 auto
+        position: relative
+        width: 155px
+        padding-top: 211px
+
+
+        &--1
+            margin-right: 40px
+            width: (107px * 1.2)
+            padding-top: (123px * 1.2)
+
+        &--1 &__message
+            background-image: url('/bubble-green-light.svg')
+            width: (107px * 1.2)
+            height: (123px * 1.2)
+            padding-bottom: 20px
+        &--1 &__message__head
+            font-size: 20px
+
+        &__message
+            background-image: url('/bubble-green-dark.svg')
+            background-size: 100%
+            width: 155px
+            height: 172px
+            text-align: center
+            color: white
+            display: flex
+            align-items: center
+            justify-content: center
+            flex-direction: column
+            box-sizing: border-box
+            padding-bottom: 25px
+            position: relative
+            z-index: 10
+            // margin-bottom: 12px
+            position: absolute
+            bottom: 0
+            transition: transform 0.5s ease-out
+
+            &__head
+                font-size: 22px
+                font-weight: 700
+
+            &__body
+                font-size: 16px
+                font-weight: 400
+
+
+        &__coins
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
+            align-items: center
+            position: relative
+            z-index: 9
+
+
+            
+
+        
+
+        &__coin.is-active ~ &__coin
+            opacity: 1
+            transform: rotate(0) translate(0,0)
+            
+            
+        &__coin.is-active
+            opacity: 1
+            transform: rotate(0) translate(0,0)
+            
+
+        &__coin            
+            width: 62px
+            height: 9px
+            position: relative
+            transform: translate(0, -100px) rotate(-170deg)
+            opacity: 0
+            transition: opacity 0.3s $ease, transform 0.8s $ease
+
+        @for $i from 1 through $max-amount-of-coins-used
+            &__coin:nth-child(#{$i})
+                z-index: #{$max-amount-of-coins-used - $i}
+                transition-delay: #{($max-amount-of-coins-used - $i) * 0.01s} 
+
+
+            img
+                display: inline-block
+                position: absolute
+                bottom: 0
+                left: 0
+
+
+            
+@media screen and (min-width: 768px)
+    .ac-easy-calculator
+        display: flex
+        justify-content: space-around
+        align-items: flex-start
+        max-width: 960px
+        margin: 0 auto
+
+        &__slider-container
+            flex: 1 1 50%
+            max-width: 367px
+            margin-bottom: 0
+
+            &__title
+                margin-bottom: 120px
+
+
+        &__slider
+            
+        
+        &__visual-container
+            flex: 1 1 50%
+            max-width: 330px

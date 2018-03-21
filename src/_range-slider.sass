@@ -1,0 +1,54 @@
+$blue: #0094CF
+
+.rangeslider
+    position: relative
+    display: block
+    cursor: pointer
+    height: 50px
+    width: 100%
+    z-index: 1
+
+.rangeslider__fill,
+.rangeslider__fill__bg
+    display: block
+    position: absolute
+    top: 17px
+    height: 15px
+    z-index: 2
+    background: #DCD7D7
+    border-radius: 10px
+    will-change: width
+
+
+
+.rangeslider__handle
+    will-change: width, height, top
+    width: 50px
+    height: 50px
+    position: absolute
+    top: 50%
+    background-image: url('slider-knob.svg')
+    display: inline-block
+    z-index: 3
+    cursor: pointer
+    border-radius: 50%
+    box-shadow: 0 2px 7px 0 rgba(0,0,0,0.2)
+    transition: width 0.1s ease-in-out, height 0.1s ease-in-out, top 0.1s ease-in-out
+
+    &:before
+        position: absolute
+        top: 100%
+        left: 50%
+        transform: translate3d(-50%,10px,0) rotate(45deg)
+        content: ""
+        background-color: white
+        width: 24px
+        height: 24px
+
+.rangeslider__fill__bg
+    background: white
+    width: 100%
+
+.rangeslider--disabled
+    opacity: 0.4
+
