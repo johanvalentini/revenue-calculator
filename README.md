@@ -24,6 +24,7 @@ From the attributes of the placeholder element, you can control the parameters a
 ```
 data-min="0"
 data-max="1500000"
+data-start-value="50000"
 data-step="1000"
 data-currency="SEK"
 data-month-label="per måned"
@@ -36,6 +37,8 @@ data-title-visual="MED EASY ÖKAR DIN OMSÄTTNING MED"
 ```data-min``` is the slider minimum. 
 
 ```data-max``` is the slider maximum.
+
+```data-start-value``` is a custom start value. Defaults to 10% of max value.
 
 ```data-step``` controls the slider increment size.
 
