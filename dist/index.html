@@ -8,9 +8,37 @@
     <link rel="stylesheet" type="text/css" href="/easy-widget.css">
 </head>
 <body>
+    <div id="ac-easy-calculator-widget" data-min="0" data-max="1500000" data-start-value="50000" data-step="1000" data-currency="SEK" data-month-label="per måned" data-year-label="per år" data-percent-revenue-per-month="4" data-title-slider="Din omsättning per månad" data-title-visual="MED EASY ÖKAR DIN OMSÄTTNING MED"></div>
+    <div class="ac-easy-calculator-widget-popup-readmore-container">
+        
+        <!-- Example button for testing purpose, not needed -->
+        <span style="background-color: rgb(0, 190, 120); border-radius: 50px; box-sizing: border-box; color: white; display: inline-block; font-family: 'Source Sans Pro', sans-serif; font-size: 18px; height: 48px; line-height: 48px; padding: 0 20px; text-align: center; min-width: 180px; margin-right: 20px">test</span>
+        <!-- End Example button -->
+        
+        <!-- Start the popup -->
+        <div class="ac-easy-calculator-widget-popup-readmore">
+            <div class="ac-easy-calculator-widget-popup-readmore__icon-container">
+                <img class="ac-easy-calculator-widget-popup-readmore__icon" src="/details-icon.svg"/>
+            </div>
+            <div class="ac-easy-calculator-widget-popup-readmore__content">
+                <h3>Exempel</h3>
+                <p>Dette er baserat på en ökning av konverteringsgrad från 2% till 3%</p>
+                <p>Ett räkneexempel:</p>
+                <p>Antal besökare 10 000</p>
+                <p>Snittköp 600kr</p>
+                <p>Konverteringsgrad 2% = 200 köp</p>
+                <p>Omsättning = 200*600kr = 120 000kr</p>
+                <p>Konverteringsgrad 3% = 300 köp</p>
+                <p>Omsättning = 300*600kr = 180 000kr</p>
+                <p>Konverteringsgrad = antalet köp/antalet besökare</p>
+            </div>
+        </div>    
+        <!-- End the popup -->
 
-    <div id="ac-easy-calculator-widget" data-min="0" data-max="1500000" data-step="1000" data-currency="SEK" data-month-label="per måned" data-year-label="per år" data-percent-revenue-per-month="12" data-title-slider="Din omsättning per månad" data-title-visual="MED EASY ÖKAR DIN OMSÄTTNING MED"></div>    
-    
+    </div>
+    <!-- Filler for testing, not needed -->
+    <div class="filler-this-is-only-for-when-showing-standalone" style="padding-top: 500px"></div>
+    <!-- End Filler -->
     <script type="text/javascript" src="/easy-widget.bundle.js"></script>
 </body>
 </html>

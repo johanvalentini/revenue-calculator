@@ -2,12 +2,11 @@ import rangesliderJs from 'rangeslider-js'
 
 var easyCalculatorWidget = document.getElementById('ac-easy-calculator-widget')
 
-// insert html here, with labels and all that jazz
-
 if(easyCalculatorWidget) {
     var currency = easyCalculatorWidget.getAttribute('data-currency') || "USD"
     var minSliderValue = parseInt(easyCalculatorWidget.getAttribute('data-min')) || 0
     var maxSliderValue = parseInt(easyCalculatorWidget.getAttribute('data-max')) || 10000
+    var initialSliderValue = parseInt(easyCalculatorWidget.getAttribute('data-start-value')) || maxSliderValue*0.1
     var sliderIncrementStepAmount = parseInt(easyCalculatorWidget.getAttribute('data-step')) || 1000
     var monthLabel = easyCalculatorWidget.getAttribute('data-month-label') || "per month"
     var yearLabel = easyCalculatorWidget.getAttribute('data-year-label') || "per year"
@@ -29,17 +28,23 @@ if(easyCalculatorWidget) {
     var rangesliderOptions = {
         min: minSliderValue,
         max: maxSliderValue,
-        value: maxSliderValue*0.1,
+        value: initialSliderValue,
         step: sliderIncrementStepAmount,
         onSlide: handleSlide,
         onInit: handleSlide,
     }
     rangesliderJs.create(easyCalculatorWidgetRangeSlider, rangesliderOptions)
+
+    // Bind popup
+    var popup = document.querySelector('.ac-easy-calculator-widget-popup-readmore__icon-container')
+    if(popup) {
+        popup.addEventListener('click', toggleReadmorePopup)
+    }
+
+
 }
 
 function handleSlide(value, percent, position) {
-
-    // maybe animationframe
     window.requestAnimationFrame(function(){
         calculateAmountOfVisibleCoins(percent)
         updateSliderLabelAndPosition(value, position, this.maxHandleX)    
@@ -108,8 +113,10 @@ function updateRevenueBubblePosition(step1AmountOfCoins,step2AmountOfCoins) {
     if(step2AmountOfCoins <= visual2Coins.length) {
         message2.setAttribute('style', 'transform: translateY(-'+((step2AmountOfCoins + 2)*heightOfCoin)+'px);')
     }
-    
-    
+}
+
+function toggleReadmorePopup() {
+    this.classList.toggle('is-active')
 }
 
 function renderTemplate(monthLabel, yearLabel, titleSlider, titleVisual) {
@@ -196,9 +203,4 @@ function renderTemplate(monthLabel, yearLabel, titleSlider, titleVisual) {
             '</div>'+
         '</div>'+
     '</div>'
-    // body...
 }
-
-// var widget = document.getElementById('widget')
-// console.log(widget)
-

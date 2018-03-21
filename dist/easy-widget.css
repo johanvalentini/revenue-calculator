@@ -109,7 +109,7 @@ html {
   width: 155px;
   padding-top: 211px; }
   .ac-easy-calculator__visual--1 {
-    margin-right: 40px;
+    margin-right: 20px;
     width: 128.4px;
     padding-top: 147.6px; }
   .ac-easy-calculator__visual--1 .ac-easy-calculator__visual__message {
@@ -122,6 +122,7 @@ html {
   .ac-easy-calculator__visual__message {
     background-image: url("/bubble-green-dark.svg");
     background-size: 100%;
+    background-repeat: no-repeat;
     width: 155px;
     height: 172px;
     text-align: center;
@@ -275,6 +276,94 @@ html {
     bottom: 0;
     left: 0; }
 
+@-webkit-keyframes easyCalculatorPopupAppear {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.98) translateY(10px);
+            transform: scale(0.98) translateY(10px); }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0); } }
+
+@keyframes easyCalculatorPopupAppear {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.98) translateY(10px);
+            transform: scale(0.98) translateY(10px); }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0); } }
+
+@-webkit-keyframes easyCalculatorPopupPointerAppear {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px) rotate(45deg);
+            transform: translateY(20px) rotate(45deg); }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0) rotate(45deg);
+            transform: translateY(0) rotate(45deg); } }
+
+@keyframes easyCalculatorPopupPointerAppear {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px) rotate(45deg);
+            transform: translateY(20px) rotate(45deg); }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0) rotate(45deg);
+            transform: translateY(0) rotate(45deg); } }
+
+.ac-easy-calculator-widget-popup-readmore-container {
+  text-align: center;
+  margin-top: 50px; }
+
+.ac-easy-calculator-widget-popup-readmore {
+  position: relative;
+  display: block;
+  vertical-align: middle; }
+  .ac-easy-calculator-widget-popup-readmore__icon-container {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    z-index: 1; }
+    .ac-easy-calculator-widget-popup-readmore__icon-container:after {
+      display: none;
+      content: "";
+      background-color: white;
+      width: 25px;
+      height: 25px;
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 5px;
+      -webkit-animation: easyCalculatorPopupPointerAppear 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+              animation: easyCalculatorPopupPointerAppear 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
+  .ac-easy-calculator-widget-popup-readmore__content {
+    z-index: 2;
+    display: none;
+    -webkit-animation: easyCalculatorPopupAppear 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            animation: easyCalculatorPopupAppear 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    width: 300px;
+    background-color: white;
+    border-radius: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    text-align: left; }
+    .ac-easy-calculator-widget-popup-readmore__content > :first-child {
+      margin-top: 0; }
+  .ac-easy-calculator-widget-popup-readmore__icon-container.is-active:after {
+    display: block; }
+  .ac-easy-calculator-widget-popup-readmore__icon-container.is-active + .ac-easy-calculator-widget-popup-readmore__content {
+    display: block; }
+
 @media screen and (min-width: 768px) {
   .ac-easy-calculator {
     display: -webkit-flex;
@@ -295,4 +384,12 @@ html {
     .ac-easy-calculator__visual-container {
       -webkit-flex: 1 1 50%;
               flex: 1 1 50%;
-      max-width: 330px; } }
+      max-width: 330px; }
+  .ac-easy-calculator-widget-popup-readmore {
+    display: inline-block; }
+    .ac-easy-calculator-widget-popup-readmore__content {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      margin-left: -150px;
+      margin-top: 40px; } }
