@@ -57,26 +57,26 @@ data-title-visual="MED EASY ÖKAR DIN OMSÄTTNING MED"
 
 # Develop
 ## Requirements for building
- * [`yarn` package manager](https://yarnpkg.com/)
+ * [`node` and `npm`](https://nodejs.org/)
 
 ## Setup for building
 ```
-yarn
+npm install
 ```
 
 ## Build
 
 ### All
 ```
-yarn build
+npm run build
 ```
 
 ### Individually
 ```
-yarn watch:js
-yarn build:js
-yarn watch:sass
-yarn build:sass
+npm run watch:js
+npm run build:js
+npm run watch:sass
+npm run build:sass
 ```
 
 ## The HTML

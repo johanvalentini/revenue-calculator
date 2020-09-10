@@ -5,15 +5,12 @@
     "watch:js": "webpack --watch --mode development",
     "build:js": "webpack --mode production",
     "build": "npm run build:sass && npm run build:js",
-    "live": "npm run live-server dist/"
+    "live": "live-server dist/"
   },
   "devDependencies": {
-    "babel": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
     "gulp-sass": "^4.1.0",
-    "svrx": "0.0.10",
+    "live-server": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
