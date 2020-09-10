@@ -18,6 +18,6 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "rangeslider-js": "^3.0.2"
+    "rangeslider-js": "^3.2.5"
   }
 }
